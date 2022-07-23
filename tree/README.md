@@ -19,13 +19,13 @@ for(int i = 1; i <= N; i ++) Node[i].parent = &Node[i];
 
 //返回结点i的祖宗节点
 //假设已知结点i的父节点的祖宗结点， 去找结点i的祖宗结点
-Node* find(int i) {
-    if (Node[i].parent != &Node[i]) Node[i].parent = find(Node[i].parent);
-    return Node[i].parent;
+Node* find(Node *pi) {
+    if (pi->parent != pi) pi->parent = find(pi->parent);
+    return pi->parent;
 }
 
 //合并i j所在的两个集合
-ppi = find(i), ppj = find(j);
+ppi = find(pi), ppj = find(pj);
 if (ppi != ppj) ppi->parent = ppj;
 ```
 
